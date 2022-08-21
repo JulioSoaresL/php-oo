@@ -19,5 +19,7 @@ class ContaBancaria
             'numeroConta' => $this->numeroConta,
             'saldo' => $this->saldo,
         ];
+
+        $teste = 'ola amigo';
     }
-}
+}   
