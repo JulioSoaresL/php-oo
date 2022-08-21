@@ -1,9 +1,13 @@
 <?php
 
 declare(strict_types = 1);
+
 namespace App;
 
-abstract class ContaBancaria
+use App\Contratos\DadosContaBancariaInterface;
+use App\Contratos\OperacaoContaBancariaInterface;
+
+abstract class ContaBancaria implements DadosContaBancariaInterface, OperacaoContaBancariaInterface
 {
     protected string $banco;
     protected string $nomeTitular;
@@ -37,9 +41,12 @@ abstract class ContaBancaria
         $this->saldo-=$valor;
         return 'Saque de R$ '.number_format($valor,2, ',', '').' realizado';
     }
+
     public abstract function obterSaldo(): string;
 
+    /*     
     public function exibirDadosConta(): array
+
     {
         return [
             'banco' => $this->banco,
@@ -48,19 +55,30 @@ abstract class ContaBancaria
             'numeroConta' => $this->numeroConta,
             'saldo' => $this->saldo,
         ];
-    }
-
-    public function exibirNomeTitular()
-    {
-        return [
-            'nomeTitular' => $this->nomeTitular,
-            'contaTitular' =>$this->numeroConta,
-        ];
-    }
+    } */
     
     public function getBanco(): string
     {
         return $this->banco;
     }
 
-}   
+    public function getNomeTitular(): string
+    {
+        return $this->nomeTitular;
+    }
+
+    public function getnumeroAgencia(): string
+    {
+        return $this->numeroAgencia;
+    }
+
+    public function getNumeroConta(): string
+    {
+        return $this->numeroConta;
+    }
+
+    public function getSaldo(): string
+    {
+        return $this->saldo;
+    }
+}
