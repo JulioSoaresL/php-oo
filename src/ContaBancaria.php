@@ -1,14 +1,15 @@
 <?php
 
+declare(strict_types = 1);
 namespace App;
 
-class ContaBancaria
+abstract class ContaBancaria
 {
-    private string $banco;
-    private string $nomeTitular;
-    private string $numeroAgencia;
-    private string $numeroConta;
-    private float $saldo;
+    protected string $banco;
+    protected string $nomeTitular;
+    protected string $numeroAgencia;
+    protected string $numeroConta;
+    protected float $saldo;
 
     public function __construct(
         string $banco,
@@ -36,10 +37,7 @@ class ContaBancaria
         $this->saldo-=$valor;
         return 'Saque de R$ '.number_format($valor,2, ',', '').' realizado';
     }
-    public function obterSaldo(): string
-    {
-        return 'Saldo Atual: R$ '.number_format($this->saldo, 2, ',', '');
-    }
+    public abstract function obterSaldo(): string;
 
     public function exibirDadosConta(): array
     {
