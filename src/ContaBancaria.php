@@ -1,13 +1,13 @@
 <?php
 
-declare(strict_types = 1);
+declare(strict_types=1);
 
 namespace App;
 
 use App\Contratos\DadosContaBancariaInterface;
-use App\Contratos\OperacaoContaBancariaInterface;
+use App\Contratos\OperacoesContaBancariaInterface;
 
-abstract class ContaBancaria implements DadosContaBancariaInterface, OperacaoContaBancariaInterface
+abstract class ContaBancaria implements DadosContaBancariaInterface, OperacoesContaBancariaInterface
 {
     protected string $banco;
     protected string $nomeTitular;
@@ -21,8 +21,7 @@ abstract class ContaBancaria implements DadosContaBancariaInterface, OperacaoCon
         string $numeroAgencia,
         string $numeroConta,
         float $saldo
-    )
-    {
+    ) {
         $this->banco = $banco;
         $this->nomeTitular = $nomeTitular;
         $this->numeroAgencia = $numeroAgencia;
@@ -33,30 +32,17 @@ abstract class ContaBancaria implements DadosContaBancariaInterface, OperacaoCon
     public function depositar(float $valor): string
     {
         $this->saldo += $valor;
-        return 'Depósito de R$ '.number_format($valor, 2, ',', '').' realizado';
+        return 'Depósito de R$ ' . $valor . ' realizado';
     }
 
     public function sacar(float $valor): string
     {
-        $this->saldo-=$valor;
-        return 'Saque de R$ '.number_format($valor,2, ',', '').' realizado';
+        $this->saldo -= $valor;
+        return 'Saque de R$ ' . $valor . ' realizado';
     }
 
     public abstract function obterSaldo(): string;
 
-    /*     
-    public function exibirDadosConta(): array
-
-    {
-        return [
-            'banco' => $this->banco,
-            'nomeTitular' => $this->nomeTitular,
-            'numeroAgencia' => $this->numeroAgencia,
-            'numeroConta' => $this->numeroConta,
-            'saldo' => $this->saldo,
-        ];
-    } */
-    
     public function getBanco(): string
     {
         return $this->banco;
@@ -67,7 +53,7 @@ abstract class ContaBancaria implements DadosContaBancariaInterface, OperacaoCon
         return $this->nomeTitular;
     }
 
-    public function getnumeroAgencia(): string
+    public function getNumeroAgencia(): string
     {
         return $this->numeroAgencia;
     }
@@ -75,10 +61,5 @@ abstract class ContaBancaria implements DadosContaBancariaInterface, OperacaoCon
     public function getNumeroConta(): string
     {
         return $this->numeroConta;
-    }
-
-    public function getSaldo(): string
-    {
-        return $this->saldo;
     }
 }

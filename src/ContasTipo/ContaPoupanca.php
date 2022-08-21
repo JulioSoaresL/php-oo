@@ -1,6 +1,6 @@
 <?php
 
-declare(strict_types = 1);
+declare(strict_types=1);
 
 namespace App\ContasTipo;
 
@@ -17,12 +17,12 @@ class ContaPoupanca extends ContaBancaria
         string $numeroAgencia,
         string $numeroConta,
         float $saldo
-    ){
+    ) {
         parent::__construct($banco, $nomeTitular, $numeroAgencia, $numeroConta, $saldo);
     }
 
     public function obterSaldo(): string
     {
-        return 'Saldo Atual: R$ '.number_format($this->saldo + ($this->saldo * self::RENDIMENTO));
+        return 'Seu saldo atual é: R$ ' . number_format(($this->saldo + ($this->saldo * self::RENDIMENTO)), 2, ',', '');
     }
 }

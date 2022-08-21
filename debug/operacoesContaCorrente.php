@@ -39,13 +39,12 @@ function exibirDados(DadosContaBancariaInterface $conta): void
     echo PHP_EOL;
 }
 
-
 $conta = new ContaCorrente(
-    'NuBank',
-    'Júlio Soares',
-    '8244',
-    '54779-69',
-    300
+    'Banco do Brasil', // banco
+    'Gustavo Fraga', // nomeTitular
+    '8244', // numeroAgencia
+    '57354-10', // numeroConta
+    0 // saldo
 );
 
 exibirDados($conta);
