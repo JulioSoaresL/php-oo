@@ -1,0 +1,17 @@
+{
+    "name": "js/poo",
+    "description": "projeto php oo",
+    "type": "project",
+    "autoload": {
+        "psr-4": {
+            "App\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "julioSoaresL",
+            "email": "juliosoareslima@outlook.com"
+        }
+    ],
+    "require": {}
+}
