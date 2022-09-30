@@ -1,3 +1,3 @@
-# Descrição
+# PHP Orientado a Onjetos
 
-Repositório criado para o estudo de PHP Orientado a Objetos
+Neste repositório de estudo está o exemplo de uma conta bancaria com todas sua operações saque, deposito, saldo, outros.
